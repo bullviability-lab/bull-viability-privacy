@@ -3,119 +3,455 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BullViability — Support & Privacy</title>
+  <title>BullViability — Crypto Exit Planning</title>
+  <meta name="description" content="BullViability helps crypto investors plan disciplined exit strategies, track portfolio performance, and execute profit-taking with confidence." />
+
   <style>
+    :root {
+      --bg: #f7f4ee;
+      --card: #ffffff;
+      --text: #171717;
+      --muted: #666666;
+      --line: #e7e1d7;
+      --accent: #151515;
+      --soft: #f1ede5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #f7f5ef;
-      color: #171717;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .container {
-      max-width: 980px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 32px 20px 64px;
+      padding: 28px 20px 64px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 32px;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
     }
 
     .hero {
-      border-radius: 24px;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-      margin-bottom: 40px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-bottom: 32px;
     }
 
-    .hero img {
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.08);
+    }
+
+    .hero-card img {
       width: 100%;
       display: block;
     }
 
+    .intro {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 36px;
+      box-shadow: 0 14px 44px rgba(0,0,0,0.06);
+    }
+
     h1 {
-      font-size: 42px;
-      margin: 0 0 8px;
-    }
-
-    h2 {
-      margin-top: 40px;
-      font-size: 26px;
-    }
-
-    h3 {
-      margin-top: 28px;
-      font-size: 20px;
+      margin: 0 0 12px;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 0.95;
+      letter-spacing: -0.06em;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
     }
 
     .tagline {
-      font-size: 22px;
-      color: #555;
-      margin-bottom: 24px;
+      margin: 0 0 20px;
+      font-size: clamp(24px, 4vw, 38px);
+      line-height: 1.15;
+      font-family: Georgia, "Times New Roman", serif;
     }
 
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 28px;
-      margin-bottom: 24px;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+    .tagline em {
+      font-style: italic;
+      color: #343434;
     }
 
-    ul {
-      padding-left: 22px;
+    .lead {
+      max-width: 760px;
+      font-size: 19px;
+      color: var(--muted);
+      margin: 0 0 28px;
     }
 
-    a {
-      color: #111;
-      font-weight: 600;
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 650;
+      border: 1px solid var(--accent);
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--line);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 32px 0;
+    }
+
+    .feature {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.045);
+    }
+
+    .icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: var(--soft);
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      font-size: 20px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 32px;
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin: 0 0 8px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 0 14px;
     }
 
     .muted {
-      color: #666;
+      color: var(--muted);
+    }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px;
+      margin-bottom: 24px;
+      box-shadow: 0 14px 44px rgba(0,0,0,0.055);
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    .notice {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+      color: #3e3e3e;
+    }
+
+    .support-card {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .email {
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .privacy h3 {
+      margin-top: 28px;
     }
 
     .footer {
-      margin-top: 48px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 36px;
+      color: var(--muted);
       font-size: 14px;
-      color: #777;
-      text-align: center;
+      padding: 0 4px;
+    }
+
+    @media (max-width: 820px) {
+      .grid,
+      .split {
+        grid-template-columns: 1fr;
+      }
+
+      .intro,
+      .section {
+        padding: 24px;
+      }
+
+      .nav {
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .container {
+        padding: 18px 14px 44px;
+      }
+
+      .nav {
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero-card,
+      .intro,
+      .section {
+        border-radius: 22px;
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
     }
   </style>
 </head>
+
 <body>
   <main class="container">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="BullViability home">
+        <span class="brand-mark">B</span>
+        <span>BullViability</span>
+      </a>
 
-    <section class="hero">
-      <img src="hero.jpg" alt="BullViability app preview" />
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#support">Support</a>
+        <a href="#privacy">Privacy</a>
+        <a href="mailto:bullviability@gmail.com">Contact</a>
+      </div>
+    </nav>
+
+    <section id="top" class="hero">
+      <div class="hero-card">
+        <img src="hero.jpg" alt="BullViability app preview" />
+      </div>
+
+      <div class="intro">
+        <h1>BullViability</h1>
+        <p class="tagline">Plan exits, <em>not emotions.</em></p>
+
+        <p class="lead">
+          BullViability helps crypto investors plan disciplined exit strategies,
+          track portfolio performance, and visualize profit-taking before market
+          emotions take over.
+        </p>
+
+        <div class="actions">
+          <a class="button" href="#support">Get Support</a>
+          <a class="button secondary" href="#privacy">Privacy Policy</a>
+        </div>
+      </div>
     </section>
 
-    <section class="card">
-      <h1>BullViability</h1>
-      <p class="tagline">Plan exits, not emotions.</p>
+    <section id="features" class="grid">
+      <article class="feature">
+        <div class="icon">◎</div>
+        <h3>Plan exits</h3>
+        <p class="muted">
+          Build structured exit plans based on entry price, holdings, and
+          market-cycle targets.
+        </p>
+      </article>
 
-      <p>
-        BullViability is a crypto portfolio planning app designed to help users
-        create disciplined exit strategies, track positions, and visualize
-        potential returns during market cycles.
-      </p>
+      <article class="feature">
+        <div class="icon">▥</div>
+        <h3>Track positions</h3>
+        <p class="muted">
+          Monitor invested capital, realized profit, potential returns, and ROI
+          in one clear view.
+        </p>
+      </article>
 
-      <p>
-        The app is a planning and analytics tool only. It does not execute trades,
-        connect to exchanges, manage wallets, or provide financial advice.
-      </p>
+      <article class="feature">
+        <div class="icon">✓</div>
+        <h3>Reach targets</h3>
+        <p class="muted">
+          Mark executed sell steps, see progress, and understand when your
+          initial investment is recovered.
+        </p>
+      </article>
     </section>
 
-    <section class="card">
-      <h2>Support</h2>
-      <p>
-        For support, questions, feedback, or privacy-related requests, contact us:
-      </p>
-      <p>
-        <a href="mailto:bullviability@gmail.com">bullviability@gmail.com</a>
-      </p>
+    <section class="section">
+      <h2>Built for disciplined crypto planning</h2>
+
+      <div class="split">
+        <div>
+          <p>
+            BullViability is a portfolio planning and analytics app. It helps
+            you define a strategy before hype, fear, and volatility start
+            influencing your decisions.
+          </p>
+
+          <p>
+            The app focuses on clarity: what you own, where you entered, what
+            your exit path looks like, and how your profit-taking unfolds over
+            time.
+          </p>
+        </div>
+
+        <div class="notice">
+          <strong>BullViability does not execute trades.</strong>
+          <br />
+          It does not connect to exchanges, manage wallets, handle real money,
+          or provide financial advice.
+        </div>
+      </div>
     </section>
 
-    <section class="card">
+    <section class="section">
+      <h2>What you can do</h2>
+
+      <div class="split">
+        <ul>
+          <li>Create crypto positions with entry price and holdings.</li>
+          <li>Generate structured exit plans using multiplier ranges.</li>
+          <li>Track invested capital, projected returns, and realized profit.</li>
+          <li>Mark completed exit levels as you sell.</li>
+        </ul>
+
+        <ul>
+          <li>See when your initial investment has been recovered.</li>
+          <li>Monitor portfolio progress with clear visual analytics.</li>
+          <li>Use BullViability Pro for extended planning features.</li>
+          <li>Keep portfolio data local-first on your device.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="support" class="section support-card">
+      <div>
+        <h2>Support</h2>
+        <p class="muted">
+          Need help, want to report an issue, or have a privacy-related request?
+        </p>
+      </div>
+
+      <a class="button" href="mailto:bullviability@gmail.com">
+        bullviability@gmail.com
+      </a>
+    </section>
+
+    <section id="privacy" class="section privacy">
       <h2>Privacy Policy</h2>
       <p class="muted">Last updated: 03.07.2026</p>
 
@@ -127,8 +463,10 @@
       </p>
 
       <h3>1. Information We Collect</h3>
-
-      <p>The App collects only the information necessary to provide its features and improve reliability.</p>
+      <p>
+        The App collects only the information necessary to provide its features
+        and improve reliability.
+      </p>
 
       <ul>
         <li>
@@ -151,7 +489,6 @@
       </ul>
 
       <h3>2. Information We Do Not Collect</h3>
-
       <p>BullViability does not collect or store:</p>
 
       <ul>
@@ -170,7 +507,6 @@
       </p>
 
       <h3>3. How We Use Information</h3>
-
       <p>Collected information is used only to:</p>
 
       <ul>
@@ -182,7 +518,6 @@
       </ul>
 
       <h3>4. Third-Party Services</h3>
-
       <p>BullViability uses trusted third-party services:</p>
 
       <ul>
@@ -200,7 +535,6 @@
       </p>
 
       <h3>5. Data Sharing</h3>
-
       <p>
         BullViability does not sell personal information. Personal information is
         shared only when necessary to provide app functionality through the
@@ -208,18 +542,19 @@
       </p>
 
       <h3>6. Data Security</h3>
-
       <p>
-        Reasonable administrative, technical, and organizational measures are used
-        to protect your information. However, no method of electronic storage or
-        transmission is completely secure.
+        Reasonable administrative, technical, and organizational measures are
+        used to protect your information. However, no method of electronic
+        storage or transmission is completely secure.
       </p>
 
       <h3>7. Your Rights</h3>
-
       <p>
-        You may request deletion of your account-related information by contacting:
-        <a href="mailto:bullviability@gmail.com">bullviability@gmail.com</a>
+        You may request deletion of your account-related information by
+        contacting:
+        <a class="email" href="mailto:bullviability@gmail.com">
+          bullviability@gmail.com
+        </a>
       </p>
 
       <p>
@@ -228,31 +563,30 @@
       </p>
 
       <h3>8. Children’s Privacy</h3>
-
       <p>
         BullViability is not intended for children under the age of 13 and does
         not knowingly collect personal information from children.
       </p>
 
       <h3>9. Changes to This Privacy Policy</h3>
-
       <p>
         We may update this Privacy Policy from time to time. Any changes will be
         published on this page with an updated "Last updated" date.
       </p>
 
       <h3>10. Contact</h3>
-
       <p>
         Email:
-        <a href="mailto:bullviability@gmail.com">bullviability@gmail.com</a>
+        <a class="email" href="mailto:bullviability@gmail.com">
+          bullviability@gmail.com
+        </a>
       </p>
     </section>
 
-    <div class="footer">
-      © 2026 Vadym Kozlenko. BullViability.
-    </div>
-
+    <footer class="footer">
+      <span>© 2026 Vadym Kozlenko. BullViability.</span>
+      <span>Plan exits, not emotions.</span>
+    </footer>
   </main>
 </body>
 </html>
