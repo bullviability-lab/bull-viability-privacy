@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BullViability — Crypto Exit Planning</title>
-  <meta name="description" content="BullViability helps crypto investors plan disciplined exit strategies, track portfolio performance, and execute profit-taking with confidence." />
+  <meta name="description" content="BullViability helps crypto investors plan disciplined exit strategies, track positions, and visualize profit-taking with confidence." />
 
   <style>
     :root {
@@ -17,13 +17,9 @@
       --soft: #f1ede5;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
@@ -46,50 +42,20 @@
 
     .nav {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      justify-content: flex-end;
       margin-bottom: 28px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      display: grid;
-      place-items: center;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 32px;
-      font-weight: 700;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.04);
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 22px;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 15px;
+      font-weight: 600;
     }
 
     .nav-links a:hover {
       color: var(--text);
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 28px;
-      margin-bottom: 32px;
     }
 
     .hero-card {
@@ -98,6 +64,7 @@
       border-radius: 28px;
       overflow: hidden;
       box-shadow: 0 18px 60px rgba(0,0,0,0.08);
+      margin-bottom: 32px;
     }
 
     .hero-card img {
@@ -105,80 +72,29 @@
       display: block;
     }
 
-    .intro {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 36px;
-      box-shadow: 0 14px 44px rgba(0,0,0,0.06);
-    }
-
-    h1 {
-      margin: 0 0 12px;
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 0.95;
-      letter-spacing: -0.06em;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 700;
-    }
-
-    .tagline {
-      margin: 0 0 20px;
-      font-size: clamp(24px, 4vw, 38px);
-      line-height: 1.15;
-      font-family: Georgia, "Times New Roman", serif;
-    }
-
-    .tagline em {
-      font-style: italic;
-      color: #343434;
-    }
-
-    .lead {
-      max-width: 760px;
-      font-size: 19px;
-      color: var(--muted);
-      margin: 0 0 28px;
-    }
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 0 18px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: #fff;
-      font-weight: 650;
-      border: 1px solid var(--accent);
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--text);
-      border-color: var(--line);
-    }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 16px;
-      margin: 32px 0;
+      margin-bottom: 24px;
+    }
+
+    .feature,
+    .section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.05);
     }
 
     .feature {
-      background: var(--card);
-      border: 1px solid var(--line);
       border-radius: 22px;
       padding: 22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.045);
+    }
+
+    .section {
+      border-radius: 28px;
+      padding: 34px;
+      margin-bottom: 24px;
     }
 
     .icon {
@@ -212,15 +128,6 @@
       color: var(--muted);
     }
 
-    .section {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 34px;
-      margin-bottom: 24px;
-      box-shadow: 0 14px 44px rgba(0,0,0,0.055);
-    }
-
     .split {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -252,6 +159,19 @@
       align-items: center;
     }
 
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      border: 1px solid var(--accent);
+    }
+
     .email {
       font-weight: 700;
       text-decoration: underline;
@@ -279,18 +199,17 @@
         grid-template-columns: 1fr;
       }
 
-      .intro,
       .section {
         padding: 24px;
       }
 
       .nav {
-        align-items: flex-start;
+        justify-content: center;
       }
 
       .nav-links {
         flex-wrap: wrap;
-        justify-content: flex-end;
+        justify-content: center;
       }
     }
 
@@ -299,22 +218,9 @@
         padding: 18px 14px 44px;
       }
 
-      .nav {
-        flex-direction: column;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-      }
-
       .hero-card,
-      .intro,
       .section {
         border-radius: 22px;
-      }
-
-      .actions {
-        flex-direction: column;
       }
 
       .button {
@@ -327,11 +233,6 @@
 <body>
   <main class="container">
     <nav class="nav">
-      <a class="brand" href="#top" aria-label="BullViability home">
-        <span class="brand-mark">B</span>
-        <span>BullViability</span>
-      </a>
-
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#support">Support</a>
@@ -340,26 +241,8 @@
       </div>
     </nav>
 
-    <section id="top" class="hero">
-      <div class="hero-card">
-        <img src="hero.jpg" alt="BullViability app preview" />
-      </div>
-
-      <div class="intro">
-        <h1>BullViability</h1>
-        <p class="tagline">Plan exits, <em>not emotions.</em></p>
-
-        <p class="lead">
-          BullViability helps crypto investors plan disciplined exit strategies,
-          track portfolio performance, and visualize profit-taking before market
-          emotions take over.
-        </p>
-
-        <div class="actions">
-          <a class="button" href="#support">Get Support</a>
-          <a class="button secondary" href="#privacy">Privacy Policy</a>
-        </div>
-      </div>
+    <section class="hero-card">
+      <img src="hero.jpg" alt="BullViability app preview" />
     </section>
 
     <section id="features" class="grid">
@@ -367,8 +250,7 @@
         <div class="icon">◎</div>
         <h3>Plan exits</h3>
         <p class="muted">
-          Build structured exit plans based on entry price, holdings, and
-          market-cycle targets.
+          Create structured crypto exit plans based on entry price, holdings, and market-cycle targets.
         </p>
       </article>
 
@@ -376,36 +258,30 @@
         <div class="icon">▥</div>
         <h3>Track positions</h3>
         <p class="muted">
-          Monitor invested capital, realized profit, potential returns, and ROI
-          in one clear view.
+          Monitor invested capital, realized profit, potential returns, and portfolio progress.
         </p>
       </article>
 
       <article class="feature">
         <div class="icon">✓</div>
-        <h3>Reach targets</h3>
+        <h3>Stay disciplined</h3>
         <p class="muted">
-          Mark executed sell steps, see progress, and understand when your
-          initial investment is recovered.
+          Mark executed sell steps and clearly see when your initial investment is recovered.
         </p>
       </article>
     </section>
 
     <section class="section">
-      <h2>Built for disciplined crypto planning</h2>
+      <h2>Important information</h2>
 
       <div class="split">
         <div>
           <p>
-            BullViability is a portfolio planning and analytics app. It helps
-            you define a strategy before hype, fear, and volatility start
-            influencing your decisions.
+            BullViability is a crypto portfolio planning and analytics tool.
+            It helps users visualize exit strategies and track progress over time.
           </p>
-
           <p>
-            The app focuses on clarity: what you own, where you entered, what
-            your exit path looks like, and how your profit-taking unfolds over
-            time.
+            The app is designed for planning only. It does not perform financial transactions.
           </p>
         </div>
 
@@ -413,28 +289,8 @@
           <strong>BullViability does not execute trades.</strong>
           <br />
           It does not connect to exchanges, manage wallets, handle real money,
-          or provide financial advice.
+          collect private keys, or provide financial advice.
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>What you can do</h2>
-
-      <div class="split">
-        <ul>
-          <li>Create crypto positions with entry price and holdings.</li>
-          <li>Generate structured exit plans using multiplier ranges.</li>
-          <li>Track invested capital, projected returns, and realized profit.</li>
-          <li>Mark completed exit levels as you sell.</li>
-        </ul>
-
-        <ul>
-          <li>See when your initial investment has been recovered.</li>
-          <li>Monitor portfolio progress with clear visual analytics.</li>
-          <li>Use BullViability Pro for extended planning features.</li>
-          <li>Keep portfolio data local-first on your device.</li>
-        </ul>
       </div>
     </section>
 
@@ -550,8 +406,7 @@
 
       <h3>7. Your Rights</h3>
       <p>
-        You may request deletion of your account-related information by
-        contacting:
+        You may request deletion of your account-related information by contacting:
         <a class="email" href="mailto:bullviability@gmail.com">
           bullviability@gmail.com
         </a>
