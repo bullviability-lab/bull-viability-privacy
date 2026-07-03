@@ -1,37 +1,116 @@
 Privacy Policy for BullViability
 
-Last updated: 11.02.2026
+Last updated: 03.07.2026
 
-BullViability is an independent mobile application designed to help users plan and visualize exit strategies for crypto assets.
+BullViability ("the App") is an independent mobile application designed to help users create and manage cryptocurrency exit strategies. We are committed to protecting your privacy and being transparent about how your information is handled.
 
-1. Data Collection
-The app may collect the following data:
-- Email address (used solely for access control and authentication)
-- App usage data (via Firebase Analytics)
-- Crash and performance data (via Firebase Crashlytics)
+1. Information We Collect
 
-No financial account data, wallet addresses, or private keys are collected.
+The App collects only the information necessary to provide its features and improve reliability.
 
-2. Data Usage
-Collected data is used only to:
-- Provide access to the app
-- Improve app stability and user experience
-- Analyze anonymous usage patterns
+Contact Information
+Email address
+Used to identify your account and synchronize your subscription status through RevenueCat.
+We do not use your email address for marketing purposes.
+Purchase Information
 
-3. Data Sharing
-BullViability does not sell or share personal data with third parties.
-Data is processed only by trusted services such as Google Firebase.
+If you purchase BullViability Pro, subscription status and purchase entitlement are processed through Apple App Store / Google Play and RevenueCat.
 
-4. Data Storage & Security
-Data is stored securely using industry-standard services.
-Sensitive information is not exposed to other users.
+The App never receives or stores:
 
-5. User Rights
-Users may request data removal by contacting the developer.
+payment card numbers;
+bank account information;
+payment credentials.
+Analytics
 
-6. Children’s Privacy
-This app is not intended for children under the age of 13.
+The App uses Google Firebase Analytics to collect anonymous information about how users interact with the application, including:
 
-7. Contact
-For any privacy-related questions, contact:
+app launches;
+feature usage;
+screen views;
+general interaction events.
+
+This information helps improve the user experience.
+
+Crash Reports
+
+The App uses Firebase Crashlytics to automatically collect crash reports and diagnostic information, including:
+
+crash logs;
+device model;
+operating system version;
+application version.
+
+Crash reports are used solely to improve stability and reliability.
+
+2. Information We Do Not Collect
+
+BullViability does not collect or store:
+
+cryptocurrency private keys;
+wallet seed phrases;
+wallet passwords;
+exchange credentials;
+bank account information;
+payment card information;
+government-issued identification documents.
+
+Portfolio information remains stored locally on your device unless future backup features are explicitly enabled by you.
+
+3. How We Use Information
+
+Collected information is used only to:
+
+provide access to BullViability Pro;
+verify subscription status;
+improve application stability;
+understand anonymous usage patterns;
+diagnose crashes and technical issues.
+4. Third-Party Services
+
+BullViability uses trusted third-party services:
+
+RevenueCat (subscription management)
+Google Firebase Analytics
+Firebase Crashlytics
+CoinMarketCap API
+CoinGecko API (where applicable)
+Binance API (where applicable)
+
+These services process data according to their own privacy policies.
+
+5. Data Sharing
+
+BullViability does not sell personal information.
+
+Personal information is shared only when necessary to provide application functionality through the third-party services listed above.
+
+6. Data Security
+
+Reasonable administrative, technical, and organizational measures are used to protect your information.
+
+While no method of electronic storage is completely secure, we continuously work to improve security practices.
+
+7. Your Rights
+
+You may request deletion of your account-related information by contacting us at:
+
 bullviability@gmail.com
+
+Please note that certain anonymous analytics or crash reports may not be individually removable because they contain no personally identifiable information.
+
+8. Children's Privacy
+
+BullViability is not intended for children under the age of 13 and does not knowingly collect personal information from children.
+
+9. Changes to This Privacy Policy
+
+We may update this Privacy Policy from time to time.
+
+Any changes will be published on this page with an updated "Last updated" date.
+
+10. Contact
+
+If you have any questions regarding this Privacy Policy, please contact:
+
+Email: bullviability@gmail.com
